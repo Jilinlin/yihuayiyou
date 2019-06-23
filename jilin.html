@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ 	<title>英华逸游</title>
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<meta charset="utf-8"/>
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <style>
+        /* 0 页面初始设置 */
+        *{
+	        padding:0;
+	        margin:0;
+        }
+        ul,li,ol{
+	        list-style:none;
+        }
+        a{
+	        text-decoration:none;
+        }
+
+        /* 1 头部导航 */
+
+        /* 使用媒体查询进行样式修饰 */
+        /* 当页面大于768px时为大页面 黑条存在 */
+        @media (min-width: 768px) {
+            /* 小黑条 */
+            .black{
+                width:100%;
+                height:30px;
+                margin:0;
+                background: #282828;
+            }
+            .black_content{
+                color:white;
+                float:right;
+                line-height:30px; 
+                font-size:14px;
+            }
+            .black_1{
+                height: 30px;
+                padding:0;
+            }
+            /* 按钮消失 */
+            .b_button{
+                display: none;
+            }
+        }
+        /* 当页面大于768px时为手机页面 黑条隐藏 */
+        @media (max-width: 768px){
+            /* 小黑条消失 */
+            .black{
+                display: none;
+            }
+            /* 按钮设置样式 */
+            .b_button{
+                width:85px;
+                line-height:30px;
+                background:#e8420a;
+                color:white;
+                text-align: center;
+                border-radius: 5px;
+                position: absolute;
+                right:60px;
+                top:10px;
+            }
+        }
+        /* 导航 */
+        /* 去除样式 */
+        .container{
+            padding:0;
+            width:100%;
+        }
+        /* 重新设置navbar样式 */
+        .navbar{
+            background:#ebe8e8;
+            border:1px solid #ebe8e8;
+            margin:0;
+            border-radius: 0;
+        }
+        /* 设置logo图标的样式 */
+        .navbar-brand{
+            padding:6px 0 0 65px;
+            margin-right:80px;
+        }
+
+        /* 2 轮播图 */
+        /* 使用媒体查询设置不同宽度下的文字内容和样式 */
+        /* 宽度大于768px */
+        @media (min-width: 768px){
+            /* 宽度大于768时手机版文字内容隐藏 */
+            .carousel-caption2{
+                display: none;
+            }
+            /* 设置大版文字样式 */
+            .carousel-caption1 {
+                position: absolute;
+                top: 10%;
+                left: 10%;
+                color: white;
+            }
+            /* 设置相应细节样式 */
+            .cc_h{
+                width:400px;
+                font-weight: lighter;
+                margin-bottom: 30px;
+            }
+            .cc_p{
+                width:400px;
+                line-height: 30px;
+            }
+            .cc_s1{
+                padding-top:10px;
+                border-top:1px solid rgba(255,255,255,0.5);
+            }
+            .cc_s2{
+                padding-bottom:10px;
+                border-bottom:1px solid rgba(255,255,255,0.5);
+            }
+            
+        }
+        /* 当为手机版时 */
+        @media (max-width:768px){
+            /* 搜索框消失 */
+            .carousel-control{
+                display:none;
+            }
+            /* 大版文字内容隐藏 */
+            .carousel-caption1{
+                display: none;
+            }
+            /* 设置手机版文字样式 */
+            .carousel-caption2{
+                position: absolute;
+                top:10%;
+                left:10%;
+                color: white;
+            }
+            /* 设置相应细节样式 */
+            .cc_h{
+                width:400px;
+                font-weight: lighter;
+                margin-bottom: 20px;
+            }
+            .cc_p{
+                width:400px;
+                font-weight: lighter;
+                line-height: 20px;
+                font-size:20px;
+            }
+        }
+
+        /* 轮播图中的搜索框 */
+        /* 宽度大于768px时 */
+        @media (min-width: 768px){
+            /* 设置整个搜索框的样式 */
+            .cc_search{
+                width:502px;
+                height:45px;
+                position: absolute;
+                bottom:15%;
+                left:25%;
+                border:3px solid rgba(28, 28, 28, 0.5);
+                border-radius: 5px;     
+            }
+            /* 搜索框下的li左浮动 */
+            .cc_ul>li{
+                float:left;
+            }
+            /* 每个li分别样式 */
+            .cc_li1{
+                width:143px;
+                line-height: 41px;
+                background: #c7c7ca;
+                border-radius: 5px 0 0 5px;
+                text-align: center;
+                color: #444343;
+            }
+            .cc_li2{
+                width:250px;
+                height: 41px;
+                color: #b1afaf;
+            }
+            .search_content{
+                width:295px;
+                height:41px;
+                border:none;
+                background: #cfcece;
+                padding-left:10px;
+            }
+            .cc_li3{
+                width:103px;
+                line-height: 41px;
+                background: #da5a06;
+                border-radius: 0 5px 5px 0;
+            }
+        }
+        /* 手机版时样式 */
+        @media (max-width:768px){
+            /* 设置整个搜索框的样式 */
+            .cc_search{
+                width:450px;
+                height:45px;
+                border:3px solid rgba(28, 28, 28, 0.5);
+                border-radius: 5px;
+                position: absolute;
+                bottom:13%;
+                left:8%;
+            }
+            /* 搜索框下的li左浮动 */
+            .cc_ul>li{
+                float:left;
+            }
+            /* 每个li分别样式 */
+            .cc_li1{
+                width:100px;
+                line-height: 41px;
+                background: #c7c7ca;
+                border-radius: 5px 0 0 5px;
+                text-align: center;
+                color: #444343;
+            }
+            .cc_li2{
+                width:260px;
+                height: 41px;
+                color: #b1afaf;
+            }
+            .search_content{
+                width:260px;
+                height:41px;
+                border:none;
+                background: #cfcece;
+                padding-left:10px;
+            }
+            .cc_li3{
+                width:84px;
+                line-height: 41px;
+                background: #da5a06;
+                border-radius: 0 5px 5px 0;
+            }
+        }
+
+        /* 3 内容主体 */
+        /* 内容部分的整体布局设置背景颜色和内边距 */
+        .content_center{
+            background:#dddddd;
+            padding-top:20px;
+        }
+        /* （1）机场接机 */
+                /* a 大版  */
+                @media (min-width:768px){
+                    /* 手机版样式隐藏 */
+                    .center_2{
+                        display: none;
+                    }
+                    /* 插入背景图 */
+                    .center1_img{
+                        background-image: url(img/Sbanner2.jpg);
+                        background-size:100% 100%; 
+                        position: relative;
+                        height:364px;  
+                    }
+                    /* 设置文字样式 */
+                    .center1_content{
+                        color:white;
+                        position: absolute;
+                        top:20px;
+                        right:10%;
+                    }
+                    /* 右侧蓝块 */
+                    .center1_blue{
+                        background: #08286d;
+                        color: white;
+                        height:364px;
+                        position: relative;
+                        border-radius: 0 5px 5px 0;
+                    }
+                    .center1_blue>img{
+                        position: absolute;
+                        top:20%;
+                        left:20%;
+                    }
+                    .center1_d1{
+                        font-size: 22px;
+                        position: absolute;
+                        top:50%;
+                        left:22%;
+                    }
+                    .center1_d2{
+                        width:60%;
+                        position: absolute;
+                        bottom:15%;
+                        left:20%;
+                        font-size: 18px;
+                        text-align: center;
+                        border:1px solid white;
+                        border-radius: 5px;
+                        padding:7px 0 7px 0;           
+                    }
+                    
+                }  
+                /* b 手机版 */
+                @media (max-width:768px){
+                    /* 大版样式隐藏 */
+                    .center_1{
+                        display: none;
+                    }
+                    /* 设置手机版样式 */
+                    .center_2{
+                        height:200px;
+                        background: white;
+                    }
+                    .center2_allcontent{
+                        height:180px;
+                        padding-top:5%;
+                    }
+                    /* 左侧图片样式设置 */
+                    .center2_img{
+                        float:left; 
+                        margin-top:5%;
+                        margin-right:5%;  
+                    }
+                    /* 文字定位设置 */
+                    .center2_content{
+                        width:55%;
+                        float: left;
+                        margin-top:2%;
+                    }
+                    /* 查看详情的样式和定位设置 */
+                    .center1_d2{
+                        float: left;
+                        width:13%;
+                        font-size: 18px;
+                        color: #666666;
+                        text-align: center;
+                        border:0.5px solid #666666;
+                        border-radius: 5px;
+                        padding:5px 0 5px 0;
+                        margin-top:10%;
+                    }
+                }
+            /* （2）热门路线 */
+            /* 过渡 */
+            /* 大版 */
+            @media (min-width:768px){
+                /* 样式居中 */
+                .gd_2{
+                    text-align: center;
+                }
+            }
+            /* 手机版 */
+            @media (max-width:768px){
+                /* 设置背景颜色 */
+                .gd_1{
+                    background: white;
+                }
+                .gd_2{
+                    padding:0;
+                    border-bottom: 0.5px solid #5f5e5e;
+                }
+                .gd_2>h2{
+                    border-left:2px solid red;
+                    padding-left:5px;
+                }
+                .gd_2>p{
+                    display: none;
+                }
+            }
+            /* 主体 */
+            /* a 大版 */
+            @media (min-width:768px){
+                /* 手机版隐藏 */
+                .route_s{
+                    display: none;
+                }
+                /* 整体高度 */
+                .route{
+                    height:1010px;
+                }
+                /* 左侧两个 */
+                .route_l{
+                    height:495px;
+                    position: relative;
+                    margin:0 5px 5px 0;                
+                }
+                .route_lb{
+                    width:100%;
+                    height:90px;
+                    color: white;
+                    padding:2% 0 0 5%;
+                    background: #363636;
+                    position: absolute;
+                    bottom:0;  
+                }
+                /* 右侧三个 */
+                .route_r{
+                    height:330px;
+                    margin:0 0 5px 0;
+                    position: relative;
+                } 
+                .route_rb{
+                    width:100%;
+                    height:90px;
+                    color: white;
+                    padding:2% 0 0 5%;
+                    background: rgba(28,28,28,0.5);
+                    position: absolute;
+                    bottom:0;           
+                }
+            }
+            /* b 手机版  */
+            @media (max-width:768px){
+                /* 大版消失 */
+                .route{
+                    display: none;
+                }
+                .route_s{
+                    background: white;
+                    height:950px;
+                }
+                .route_s_l{
+                    height:400px;
+                    margin-bottom:20px;
+                    position: relative;
+                }
+                /* 左侧样式 */
+                .route_s_lb{
+                    width:100%;
+                    height:90px;
+                    color: white;
+                    padding:2% 0 0 5%;
+                    background: rgba(28,28,28,0.5);
+                    position: absolute;
+                    bottom:0;  
+                }
+                /* 设置查看更多样式 */
+                .more{
+                    width:30%;
+                    line-height:50px;
+                    border:0.5px solid #666666;
+                    border-radius: 5px;
+                    text-align: center;
+                    font-size: 20px;
+                    margin:40px 0 0 35%;
+                }
+                .more>img{
+                    margin-left:10px;
+                }
+            }
+
+
+            /* （3）签证推荐  */
+            /* 主体  */
+            /* a 大版  */
+            @media (min-width:768px){
+                /* 手机版样式隐藏 */
+                .visa_s{
+                    display: none;
+                }
+                /* 设置大版高度 */
+                .visa{
+                    height:770px;
+                }
+                /* 左边一个 */
+                .visa_l{
+                    height:650px;
+                    margin:0 5px 5px 0;
+                    position: relative;
+                }
+                .visa_lb{
+                    width:100%;
+                    height:50px;
+                    background: rgba(28,28,28,0.7);
+                    position: absolute;
+                    bottom:0;
+                    color: white;
+                    padding:2% 0 0 5%;
+                }
+                /* 右边四个 */
+                .visa_r{
+                    height:320px;
+                    margin:0 5px 10px 0;
+                    position: relative;
+                }
+                .visa_rb{
+                    width:100%;
+                    height:50px;
+                    background: rgba(28,28,28,0.7);
+                    position: absolute;
+                    bottom:0;
+                    color: white;
+                    padding:3% 0 0 5%;
+                }
+                /* 查看更多 */
+                .visamore{
+                    width:60%;
+                    line-height:35px;
+                    border:0.5px solid #666666;
+                    border-radius: 5px;
+                    text-align: center;
+                    margin:40px 0 0 0;
+                }
+                .visamore>img{
+                    margin-left:10px;
+                }
+                
+            }
+            /* b 手机版 */
+            @media (max-width:768px){
+                /* 大版隐藏 */
+                .visa{
+                    display: none;
+                }
+                /* 手机版设置背景颜色和高度 */
+                .visa_s{
+                    background: white;
+                    height:510px;
+                }
+                /* 左边一个 */
+                .visa_s_l{
+                    height:410px;
+                    position: relative;
+                }
+                .visa_s_lb{
+                    width:100%;
+                    height:50px;
+                    color: white;
+                    padding:2% 0 0 5%;
+                    position: absolute;
+                    bottom:0;
+                    background: rgba(28,28,28,0.5);       
+                }
+                /* 右边两个 */
+                .visa_s_r{
+                    height:200px;
+                    position: relative;
+                    margin:0 0 10px 5px;
+                }
+                .visa_s_rb{
+                    width:100%;
+                    height:50px;
+                    background: rgba(28,28,28,0.5);
+                    position: absolute;
+                    bottom:0;
+                    color: white;
+                    padding:2% 0 0 5%;
+                }
+                /* 查看更多样式设置 */
+                .visamore{
+                    width:50%;
+                    line-height:35px;
+                    border:0.5px solid #646363;
+                    border-radius: 5px;
+                    text-align: center;
+                    margin:45px 0 0 -20%;
+                }
+                .visamore>img{
+                    margin-left:10px;
+                }
+            }
+
+            /* （4）长图过渡  */
+            /* 大版 */
+            @media(min-width:768px){
+                /* 设置高度 */
+                .big_img{
+                    height:345px;
+                }
+            }
+            /* 手机版 */
+            @media(max-width:768px){
+                /* 隐藏 */
+                .bigimg{
+                    display: none;
+                }
+            }
+        /* 4 底部 */
+        /* 底部整体样式 */
+        /* 大版设置背景图 */
+        @media (min-width:768px){
+            .allbottom{
+                background: url(img/back.png) #ddd no-repeat;
+                background-size:contain;
+                height:1380px;
+            }
+        }
+        /* 手机版背景为白 */
+        @media (max-width:768px){
+            .allbottom{
+                background: url(img/back.png) white no-repeat;
+                background-size:contain;
+                height:1480px;
+            }
+        }
+        /* 第一行块 使命与愿景 */
+        /* 大版 */
+        @media(min-width:768px){
+            /* h4样式隐藏 */
+            .sm{
+                display: none;
+            }
+        }
+        /* 手机版 */
+        @media(max-width:768px){
+            /* 设置h4样式 */
+            .sm{
+                float:left;
+                margin:30px 0 9px 0;
+            }
+            .gd_2>h2{
+                float:left;
+            }
+        }
+        /* 第二行块 图片、服务理念及优势 */
+        /* 大版 */
+        @media (min-width:768px){
+            /* 设置大版整体高度 */
+            .bottom_pc{
+                height:320px;
+            }
+            /* 设置左侧背景图样式 */
+            .bottom_pcl{
+                background: url(img/mission1.jpg);
+                background-size:100% 100%;
+                height:320px;
+                border-radius: 3px 0 0 3px; 
+            }
+            /* 设置右侧背景及相应文字 */
+            .bottom_pcr{
+                background: rgba(16, 67, 116, 0.5);
+                height:320px;
+                color: white;
+                border-radius:0 3px 3px 0; 
+            }
+            .bottom_pcr_h{
+                text-align: center;
+                margin:80px 0 30px 0;
+            }
+            .bottom_pcr_p{
+                width:90%;
+                margin-left:5%;
+                line-height: 30px;
+            }
+            .bottom_spc{
+                display: none;
+            }
+        }
+        /* 手机版 */
+        @media (max-width:768px){
+            /* 大版样式隐藏 */
+            .bottom_pc{
+                display: none;
+            }
+            /* 手机版设置高度 */
+            .bottom_spc{
+                height:520px;
+            }
+            /* 设置相应样式 */
+            .bottom_spct{
+                height:520px;
+            }
+            .bottom_spc_l{
+                background: url(img/mission1.jpg);
+                background-size:100% 100%;
+                height:320px;
+            }
+            .bottom_spc_r{
+                height:200px;
+            }
+            .bottom_spc_r_h{
+                text-align: center;
+                margin:50px 0 30px 0;
+            }
+            .bottom_spc_r_p{
+                width:100%;
+                line-height: 20px;
+            }
+        }
+        /* 第三行块 自驾游 */
+        .tour{
+            height:320px;
+        }
+        .tour_img{
+            height:320px;
+            background: url(img/mission2.jpg);
+            background-size: 100% 100%;
+        }
+
+
+        /* 第四行块 品质服务优势 */
+        /* 大版 */
+        @media(min-width:768px){
+            /* 手机样式隐藏 */
+            .server{
+                display: none;
+            }
+            .three_prm_s{
+                display: none;
+            }
+            /* 设置大版样式高度 */
+            .pz{
+                height:400px;
+            }
+            /* 设置中间栅格系统背景颜色 */
+            .three_pz{
+                height:570px;
+                background: #1c5080;
+                border-radius: 3px;
+            }
+            .prm{
+                height:400px;
+            }
+            .three_prm{
+                height:400px;
+            }
+            /* 设置图片和文字的样式和定位 */
+            .three_prm_img{
+                position: absolute;
+                top:150px;
+                left:20%;
+            }
+            .three_prm_div{
+                color: white;
+                text-align: center;
+                margin:380px 0 0 0;
+            }
+           
+        }
+        /* 手机版 */
+        @media(max-width:768px){
+            /* 大版样式隐藏 */
+            .prm{
+                display: none;
+            }
+            .pz{
+                height:500px;
+            }
+            .three_pz{
+                height:500px;
+            }
+            /* 设置服务优势样式 */
+            .server{
+                height:65px;
+                text-align: center;
+                font-size:25px;
+                padding:25px 0 10px 0;
+            }
+            .three_prm_s{
+                height: 120px;
+                border-bottom:0.5px solid #9d9d9d;
+                position: relative;
+            }
+            /* 设置相应图片文字样式 */
+            .three_prm_s_img{
+                position: absolute;
+                top:25px;
+                left:10%;
+            }
+            .three_prm_s_p{
+                position: absolute;
+                top:25px;
+                left:30%;
+                font-size: 17px;
+            }
+            
+        }
+
+        /* 底部 */
+        /* 大版样式 */
+        @media(min-width:768px){
+            /* 手机样式隐藏 */
+            .end_sb{
+                display: none;
+            }
+            /* 设置整体end样式 */
+            .end{
+                height:480px;
+                background: #141414;
+                color: white;
+            }
+            /* 设置下边线样式 */
+            .end_t{
+                height:350px;
+                border-bottom:0.5px solid #ddd;
+            }
+            .end_ct{
+                height:350px;
+            }
+            /* 设置一行样式 */
+            .end_ct1{
+                height:150px;
+                padding:45px 0 0 0;
+            }
+            .end_ct1>h4{
+                float:left;
+                margin:0 2% 0 0;
+            }
+            .end_ct1>ul{
+                float:left;
+                width:65%;
+            }
+            .end_ct1>ul>li{
+                width:17%;
+                float:left;
+                margin:0 3% 0 5%;
+            }
+            /* 设置三行样式 */
+            .end_ct2>h4{
+                float:left;
+                margin:0 2% 0 0;
+            }
+            .end_ct2>ul{
+                float:left;
+                width:85%;
+            }
+            .end_ct2>ul>li{
+                margin:0 1% 5px 0;
+                float:left;
+                font-size: 12.5px;
+            }
+            /* 设置大版最底部样式 */
+            .end_b{
+                height:130px;
+            }
+            .end_cb{
+                height:130px;
+                padding:45px 0 0 0;
+            }
+            .end_cb>h4{
+                text-align: center;
+            }
+        }
+        /* 手机版样式 */
+        @media(max-width:768px){
+            /* 大版样式隐藏 */
+            .end_t{
+                display: none;
+            }
+            .end_b{
+                display: none;
+            }
+            /* 设置整个背景颜色 */
+            .end{
+                height:270px;
+                background: #2a292b;
+                color: white;
+            }
+            /* 设置相应字体位置和样式 */
+            .end_sb{
+                height:270px;
+            }
+            .end_scb{
+                height:250px;
+                padding:80px 0 0 0;
+            }
+            .end_scb>h4{
+                text-align: center;
+            }
+        }
+    </style>
+ </head>
+ <body style="padding-top:80px;"  data-spy="scroll" data-target="#myNav">
+    <!-- 1 头部导航 -->
+    <div class="container">
+        <!-- 导航栏 -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="myNav">
+            <!-- 最顶端小黑条 -->
+            <div class="row black">
+                <!-- 使用栅格系统进行布局 -->
+                <!-- 使用媒体查询进行样式修饰 -->
+                <div class="col-xs-11 black_1">
+                        <div class="black_content">
+                            <img src="img/tell.png" style="margin-right:8px;">
+                            <span style="margin-right:40px;">400-808-8682</span> 
+                            <a href="#" style="margin-right:10px; color: white;">请登录</a>|
+                            <a href="#" style="margin-left:10px; color: white;">注册</a>
+                        </div>    
+                </div>
+                <!-- 使用一份来进行占位 -->
+                <div class="col-xs-1"></div>
+            </div>
+            <!-- 导航主体部分 -->
+            <div class="container-fluid">
+                <!-- header部分 -->
+                <div class="navbar-header">
+                    <!-- 汉堡按钮 -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-1">
+                        <span class="sr-only">导航开关</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- logo图标 -->
+                    <a class="navbar-brand" href="#"><img style="width: 130px; height:37px" src="img/logo.png"></a>
+                </div>
+                        
+                <div class="collapse navbar-collapse" id="bs-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#shouye" class="nav_a">首页</a></li>
+                        <li><a href="#luxian" class="nav_a">热门路线</a></li>
+                        <li><a href="#qianzheng" class="nav_a">签证推荐</a></li>
+                        <li><a href="#yuanjing" class="nav_a">使命愿景</a></li>
+                    </ul>                        
+                </div>
+            </div>            
+            <!-- 手机模式下的快速定制按钮 -->
+            <button class="b_button">快速定制</button>
+        </nav>
+    </div>
+
+    <!-- 2 轮播图显示 -->
+    <div class="carouselout">
+        <div id="generic" class="carousel slide" data-ride="carousel">
+        <!-- （1）轮播图项目 -->
+        <div class="carousel-inner" >
+            <div class="item active">
+                <img alt="First slide" src="img/banner.jpg" >
+                <!-- 大图显示文字 -->
+                <div class="carousel-caption1">
+                    <h2 class="cc_h">悠游古欧洲 遍历德法瑞意</h2>
+                    <p class="cc_p">
+                        <span class="cc_s1">巴黎卢浮宫、塞纳河游船、凡赛尔宫</span><br/>
+                        <span class="cc_s2">少女峰、大运河游船、金色列车、西庸城堡</span>
+                    </p>
+                </div>
+                <!-- 手机版显示文字 -->
+                <div class="carousel-caption2">
+                    <h2 class="cc_h">悠游古欧洲 遍历德法瑞意</h2>
+                    <p class="cc_p">全程升级热早+1晚5星酒店</p>
+                </div>
+            </div>
+            <div class="item">
+                <img alt="Second slide" src="img/banner2.jpg">
+            </div>
+        </div>
+        <!-- （2）轮播图导航 -->
+        <!-- 左箭头 -->
+        <a class="left carousel-control" href="#generic" data-slide="prev">
+            <img class="glyphicon glyphicon-chevron-left" src="img/left.png">
+        </a>
+        <!-- 右箭头 -->
+        <a class="right carousel-control" href="#generic" data-slide="next">
+            <img class="glyphicon glyphicon-chevron-right" src="img/right.png">
+        </a>
+        <!-- （3）轮播图搜索框 -->
+        <div class="container cc_search">
+            <ul class="cc_ul">
+                <li class="cc_li1">
+                    <img style="margin-right: 20px;" src="img/position.png">目的地
+                </li>
+                <li class="cc_li2">
+                    <input class="search_content" type="text" placeholder="| 日本 美国 英国 地中海">
+                </li>
+                <li class="cc_li3">
+                    <img style="margin-left: 30px;" src="img/search.png">
+                </li>
+            </ul>
+        </div>
+        </div>
+    </div>
+
+    <!-- 3 内容主体 -->
+    <!-- 整体思路：栅格系统进行布局  媒体查询进行设置大板和手机版的隐藏及样式 -->
+    <div class="container content_center">
+        <!-- （1）机场接机 -->
+        <!-- a 大版 -->
+        <div style="margin:20px 0" class="row center_1 container-fluid" id="shouye">
+            <!-- 栅格系统一份占位使用 -->
+            <div class="col-xs-1"></div>
+            <!-- 背景图片及文字 -->
+            <!-- 栅格系统占8份 -->
+            <div class="col-xs-8 center1_img">
+                <div class="center1_content">
+                    <h3>机场接机 省时省心</h3>
+                    <p>
+                        <span>提供上海、江苏、无锡各市</span>
+                        <br/>
+                        <span>往返机场、码头接送服务，更有包车服务</span>
+                    </p>
+                </div>
+            </div>
+            <!-- 右侧蓝块 -->
+            <!-- 栅格系统占两份 -->
+            <div class="col-xs-2 center1_blue">
+                <img src="img/car.png">
+                <div class="center1_d1">车辆接送</div>
+                <div class="center1_d2">查看详情</div>
+            </div>
+            <!-- 栅格系统一份占位使用 -->
+            <div class="col-xs-1"></div>
+        </div>
+        <!-- b 手机版 -->
+        <div style="margin:20px 0" class="row center_2">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 center2_allcontent">
+                <img class="center2_img" src="img/carH.png">
+                <div class="center2_content">
+                    <h3 style="color: #1c5080;margin:0 0 15% 0">机场接机 省心省力</h3>
+                    <p style="color: #666666;font-size: 17px;">
+                        <span>提供上海、江苏、无锡各市</span><br/>
+                        <span>往返机场、码头接送服务，更有包车服务</span>
+                    </p>
+                </div>
+                <div class="center1_d2">查看详情</div>
+            </div>
+            <div class="col-xs-1"></div>
+        </div>
+        <!-- （2）热门路线 -->
+        <!-- 过渡 -->
+        <div style="margin:0; padding:10px 0" class="row gd_1 container-fluid" id="luxian">
+            <!-- 栅格系统一份占位使用 -->
+            <div class="col-xs-1"></div>
+            <!-- 栅格系统10份 -->
+            <div class="col-xs-10 gd_2">
+                <h2>热门线路</h2>
+                <p>Popular tourist routes</p>
+            </div>
+            <!-- 栅格系统一份占位使用 -->
+            <div class="col-xs-1"></div>
+        </div>
+        <!-- 主体 -->
+        <!-- a 大版 -->
+        <div style="padding:0;margin:0" class="row route">
+                <!-- 栅格系统占位使用 -->
+                <div class="col-xs-1"></div>
+                <!-- 左侧两个 -->
+                <div style="padding:0;margin:0" class="col-xs-5">
+                    <!-- 思路：背景图加半透明div设置文字样式 -->
+                    <!-- （1）海南三亚 -->
+                    <div style="background: url(img/hot1.jpg);background-size:100% 100%" class="route_l">
+                        <div class="route_lb">
+                            <p style="font-size: 20px;font-weight: lighter">
+                                海南三亚5天4晚，纯玩、4晚红树林度假王国
+                                <br/>
+                                ￥<span style="font-size: 30px">2580</span> / 人起
+                            </p>
+                        </div>
+                    </div>
+                    <!-- （2）欧洲四国 -->
+                    <div style="background: url(img/hot2.jpg);background-size:100% 100%" class="route_l">
+                        <div class="route_lb">
+                                <p style="font-size: 20px;font-weight: lighter">
+                                    德法意瑞欧洲4国，ABCD任意线路由您挑选
+                                    <br/>
+                                    ￥<span style="font-size: 30px">7999</span> / 人起
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 右侧三个 -->
+                <div style="padding:0;margin:0" class="col-xs-5">
+                    <!-- （1）曼谷 -->
+                    <div style="background: url(img/hot3.jpg);background-size:100% 100%" class="route_r">
+                        <div class="route_rb">
+                            <p style="font-size: 20px;font-weight: lighter">
+                                曼谷+芭提雅 国际五星，赠送2220大礼包，绝无自费
+                                <br/>
+                                ￥<span style="font-size: 30px">2799</span> / 人起
+                            </p>
+                        </div>
+                    </div>
+                    <!-- （2）日本 -->
+                    <div style="background: url(img/hot4.jpg);background-size:100% 100%" class="route_r">
+                        <div class="route_rb">
+                            <p style="font-size: 20px;font-weight: lighter">
+                                日本本州游 樱花、寿司、温泉、美食
+                                <br/>
+                                ￥<span style="font-size: 30px">5399</span> / 人起
+                            </p>
+                        </div>
+                    </div>
+                    <!-- （3）斯里兰卡 -->
+                    <div style="background: url(img/hot5.jpg);background-size:100% 100%" class="route_r">
+                        <div class="route_rb">
+                            <p style="font-size: 20px;font-weight: lighter">
+                                斯里兰卡7天6晚全景游 保证入住2晚香格里拉
+                                <br/>
+                                ￥<span style="font-size: 30px">7999</span> / 人起
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 栅格系统一份占位使用 -->
+                <div class="col-xs-1"></div>
+        </div>
+        <!-- b 手机版 -->
+        <div style="padding:0;margin:0" class="row route_s">
+                <!-- 栅格系统一份占位使用 -->
+                <div class="col-xs-1"></div>
+                <!-- 手机版中间两份 -->
+                <div style="padding:0;margin:0" class="col-xs-10">
+                    <div style="background: url(img/hot1.jpg);background-size:100% 100%" class="route_s_l">
+                        <div class="route_s_lb">
+                            <p style="font-size: 20px;font-weight: lighter">
+                                海南三亚5天4晚，纯玩、4晚红树林度假王国<br/>
+                                ￥<span style="font-size: 30px">2580</span> / 人起
+                            </p>
+                        </div>
+                    </div>
+                    <div style="background: url(img/hot2.jpg);background-size:100% 100%" class="route_s_l">
+                        <div class="route_s_lb">
+                            <p style="font-size: 20px;font-weight: lighter">
+                                德法意瑞欧洲4国，ABCD任意线路由您挑选<br/>
+                                ￥<span style="font-size: 30px">7999</span> / 人起
+                            </p>
+                        </div>
+                    </div>
+                    <div class="more">查看更多<img src="img/hotR.png"></div>
+                </div>
+                <!-- 栅格系统一份占位使用 -->
+                <div class="col-xs-1"></div>
+        </div>
+        <!-- （3）签证推荐 -->
+        <!-- 过渡 -->
+        <div style="margin-top:20px; padding:10px 0" class="row gd_1 container-fluid" id="qianzheng">
+            <!-- 栅格系统一份占位使用 -->    
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 gd_2">
+                <h2>签证推荐</h2>
+                <p>Visa recommendation</p>
+                <p>
+                    热门：日本&nbsp;&nbsp;马来西亚&nbsp;&nbsp;美国&nbsp;&nbsp;意大利&nbsp;&nbsp;加拿大&nbsp;&nbsp;新加坡
+                </p>
+            </div>
+            <!-- 栅格系统一份占位使用 -->
+            <div class="col-xs-1"></div>
+        </div>  
+        <!-- 主体 -->
+        <!-- a 大版 -->
+        <div style="padding:0; margin:0" class="row visa">
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+            <!-- 左边一个 -->
+            <!-- 日本 -->
+            <div style="padding:0;margin:0" class="col-xs-4">
+                <div style="background: url(img/visa1.jpg);background-size:100% 100%" class="visa_l">
+                    <div class="visa_lb">
+                        <p style="font-size: 15px;font-weight: lighter">
+                            日本旅游签证&nbsp;&nbsp;
+                            ￥<span style="font-size: 20px">420</span> / 人
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- 中间两个 -->
+            <div style="padding:0;margin:0" class="col-xs-3">
+                <!-- 新加坡 -->
+                <div style="background: url(img/visa2.jpg);background-size:100% 100%" class="visa_r">
+                    <div class="visa_rb">
+                        <p style="font-size: 15px;font-weight: lighter">
+                            新加坡旅游签证&nbsp;&nbsp;
+                            ￥<span style="font-size: 20px">370</span> / 人
+                        </p>
+                    </div>
+                </div>
+                <!-- 申根 -->
+                <div style="background: url(img/visa4.jpg);background-size:100% 100%" class="visa_r">
+                    <div class="visa_rb">
+                        <p style="font-size: 15px;font-weight: lighter">
+                            申根旅游签证&nbsp;&nbsp;
+                            ￥<span style="font-size: 20px">450</span> / 人
+                        </p>
+                    </div>
+                </div>
+                <div class="visamore">查看更多<img src="img/hotR.png"></div>
+            </div>
+            <!-- 右侧两个 -->
+            <div style="padding:0;margin:0" class="col-xs-3">
+                <!-- 马来西亚 -->
+                <div style="background: url(img/visa3.jpg);background-size:100% 100%" class="visa_r">
+                    <div class="visa_rb">
+                        <p style="font-size: 15px;font-weight: lighter">
+                            马来西亚旅游签证
+                            ￥<span style="font-size: 20px">1380</span> / 人
+                        </p>
+                    </div>
+                </div>
+                <!-- 美国 -->
+                <div style="background: url(img/visa5.jpg);background-size:100% 100%" class="visa_r">
+                       <div class="visa_rb">
+                        <p style="font-size: 15px;font-weight: lighter">
+                            美国旅游签证&nbsp;&nbsp;
+                            ￥<span style="font-size: 20px">2799</span> / 人
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+        </div>
+        <!-- b 手机版 -->
+        <div style="padding:0; margin-bottom:20px;" class="row visa_s">
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+            <!-- 左边一个 -->
+            <!-- 日本 -->
+            <div style="padding:0;margin:0" class="col-xs-4">
+                <div style="background: url(img/visa1.jpg);background-size:100% 100%" class="visa_s_l">
+                    <div class="visa_s_lb">
+                        <p style="font-size: 20px;font-weight: lighter">
+                            日本旅游签证&nbsp;&nbsp;
+                            ￥<span style="font-size: 30px">420</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- 右边两个 -->
+            <div style="padding:0;margin:0" class="col-xs-6">
+                <!-- 美国 -->
+                <div style="background: url(img/visa5.jpg);background-size:100% 100%" class="visa_s_r">
+                    <div class="visa_s_rb">
+                        <p style="font-size: 20px;font-weight: lighter">
+                            美国旅游签证&nbsp;&nbsp;
+                            ￥<span style="font-size: 30px">370</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- 新加坡 -->
+                 <div style="background: url(img/visa2.jpg);background-size:100% 100%" class="visa_s_r">
+                    <div class="visa_s_rb">
+                        <p style="font-size: 20px;font-weight: lighter">
+                            新加坡旅游签证&nbsp;&nbsp;
+                            ￥<span style="font-size: 30px">450</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="visamore">查看更多<img src="img/hotR.png"></div>
+            </div>
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+        </div>
+        <!-- （4）长图过渡 -->
+        <div style="margin-bottom:20px; padding:0" class="row bigimg">
+                <div style="background-image:url(img/Bbanner.jpg); background-size:100% 100% " class="col-xs-12  big_img">
+                </div>
+        </div>
+    </div>
+
+    <!-- 4 底部 -->
+    <!-- 思路：栅格系统进行布局 媒体查询进行样式更改 -->
+    <div class="container allbottom">
+        <!-- 第一行块 使命与愿景 -->
+        <div style="margin:0 ; padding:20px 0 10px 0; height:150px" class="row gd_1 " id="yuanjing">
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 gd_2">
+                <h2>使命与愿景</h2>
+                <h4 class="sm">:&nbsp;&nbsp;让旅游回归本质，体验纯粹旅游</h4>
+                <p>
+                    让旅游回归本质，体验纯粹旅游
+                </p>
+            </div>
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+        </div> 
+
+        <!-- 第二行块 图片、服务理念及优势 -->
+        <!-- 大版 左右布局方式 -->
+        <div style="padding:0;margin:0" class="row bottom_pc">
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+            <!-- 左边图片 -->
+            <div class="col-xs-4 bottom_pcl"></div>
+            <!-- 右边文字 -->
+            <div class="col-xs-6 bottom_pcr">
+                <h3 class="bottom_pcr_h">服务理念及优势</h3>
+                <p class="bottom_pcr_p">
+                     &nbsp;“英华逸游”通过重新打造旅游过程中的产品线路设计、出行交通方案、
+                    陪游向导服务、增值关怀项目等，为客户提供高品质的旅游体验。英华逸
+                    游在泰国、欧洲、等多个国家拥有丰富的旅游资源，同时致力于给用户提
+                    供性价比高的产品和服务。
+                </p>
+            </div>
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+        </div>
+        <!-- 手机版 上下布局方式 -->
+        <div style="padding:0;margin:0" class="row bottom_spc">
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+            <div style="padding:0" class="col-xs-10 bottom_spct">
+                <div class="bottom_spc_l"></div>
+                <div class="bottom_spc_r">
+                    <h3 class="bottom_spc_h">--服务理念--</h3>
+                    <p class="bottom_spc_p">
+                        &nbsp;“英华逸游”通过重新打造旅游过程中的产品线路设计、出行交通方案、
+                        陪游向导服务、增值关怀项目等，为客户提供高品质的旅游体验。英华逸
+                        游在泰国、欧洲、等多个国家拥有丰富的旅游资源，同时致力于给用户提
+                        供性价比高的产品和服务。
+                    </p>
+                </div>
+            </div>
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+        </div>
+
+        <!-- 第三行块  自驾游 -->
+        <div style="padding:0;margin-top:10px;" class="row tour">
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+            <div class="col-xs-10 tour_img"></div>
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+        </div>
+
+        <!-- 第四行块 品质、服务优势-->
+        <div style="padding:0;margin-top:10px;" class="row pz">
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+            <!-- 栅格系统10份 -->
+            <div class="col-xs-10 three_pz">
+                <!-- 大版 -->
+                <div style="padding:0;margin:0" class="row prm">
+                    <!-- 内部嵌套使用栅格系统 -->
+                    <div class="col-xs-4 three_prm">
+                        <img class="three_prm_img" src="img/three1.png">
+                        <div class="three_prm_div">
+                            <p>旅游达人精心设计、基于口碑反复打磨，</p>
+                            <p>全网最好，敢跟任何产品比</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 three_prm">
+                        <img class="three_prm_img" src="img/three2.png">
+                        <div class="three_prm_div">
+                            <p>不推自费，</p>
+                            <p>不进垃圾购物店和伪景点</p>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 three_prm">
+                        <img class="three_prm_img" src="img/three3.png">
+                        <div class="three_prm_div">
+                            <p>独立成团不散拼，</p>
+                            <p>只跟亲朋好友一起玩，每天发团</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 手机版 -->
+                <div class="server">--服务优势--</div>
+                <div class="three_prm_s">
+                        <img class="three_prm_s_img" src="img/icon11.png">
+                        <p class="three_prm_s_p">
+                            旅游达人精心设计、基于口碑反复打磨，<br/>
+                            告别人山人海鸡肋景点。<br/>
+                            全网最好，敢跟任何产品比
+                        </p>
+                </div>
+                <div class="three_prm_s">
+                        <img class="three_prm_s_img" src="img/icon22.png">
+                        <p class="three_prm_s_p">
+                            不推自费，<br/>
+                            不进垃圾购物店和伪景点
+                        </p>
+                </div>
+                <div class="three_prm_s">
+                        <img class="three_prm_s_img" src="img/icon33.png">
+                        <p class="three_prm_s_p">
+                            独立成团不散拼，<br/>
+                            只跟亲朋好友一起玩，每天发团
+                        </p>
+                </div>
+            </div>
+            <!-- 栅格系统一份占位使用 --> 
+            <div class="col-xs-1"></div>
+        </div>
+
+    </div>
+
+    <!-- 5 结束 -->
+    <div class="container end">
+            <div style="margin:0;padding:0" class="row end_t">
+                <!-- 栅格系统一份占位使用 --> 
+                <div class="col-xs-1"></div>
+                <div class="col-xs-10 end_ct">
+                    <div class="end_ct1">
+                        <h4>合作伙伴</h4>
+                        <ul>
+                            <li>
+                                <div>
+                                    <img src="img/xiecheng.png">
+                                    <h6 style="text-align: center">携程网</h6>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="img/feizhu.png">
+                                    <h6 style="text-align: center">阿里飞猪</h6>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="img/qunaer.png">
+                                    <h6 style="text-align: center">去哪儿</h6>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <img src="img/tiantang.png">
+                                    <h6 style="text-align: center">苏州旅游局</h6>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="height:75px" class="end_ct2">
+                        <h4>热门位置</h4>
+                        <ul>
+                            <li>韩国</li>
+                            <li>日本</li>
+                            <li>菲律宾</li>
+                            <li>越南</li>
+                            <li>老挝</li>
+                            <li>柬埔寨</li>
+                            <li>泰国</li>
+                            <li>马来西亚</li>
+                            <li>新加坡</li>
+                            <li>印度尼西亚</li>
+                            <li>印度</li>
+                            <li>斯里兰卡</li>
+                            <li>土耳其</li>
+                            <li>阿联酋</li>
+                            <li>西班牙</li>
+                            <li>意大利</li>
+                            <li>希腊</li>
+                            <li>法国</li>
+                            <li>比利时</li>
+                            <li>荷兰</li>
+                            <li>英国</li>
+                            <li>瑞士</li>
+                            <li>奥地利</li>
+                            <li>德国</li>
+                            <li>匈牙利</li>
+                            <li>俄罗斯</li>
+                            <li>捷克</li>
+                            <li>芬兰</li>
+                            <li>葡萄牙</li>
+                            <li>冰岛</li>
+                            <li>美国</li>
+                            <li>加拿大</li>
+                            <li>巴西</li>
+                            <li>阿根廷</li>
+                            <li>澳大利亚</li>
+                            <li>新西兰</li>
+                        </ul>
+                    </div>
+                    <div style="height:45px" class="end_ct2">
+                        <h4>主体服务</h4>
+                        <ul>
+                            <li>海岛度假</li>
+                            <li>历史文化</li>
+                            <li>探索冒险</li>
+                            <li>美食购物</li>
+                            <li>都市生活</li>
+                            <li>海外游学</li>
+                            <li>邮轮度假</li>
+                            <li>蜜月摄影</li>
+                            <li>亲子乐园</li>
+                        </ul>
+                    </div>
+                    <div style="height:80px" class="end_ct2">
+                        <h4>友情链接</h4>
+                        <ul>
+                            <li>马蜂窝</li>
+                            <li>穷游</li>
+                            <li>booking</li>
+                            <li>苏州旅游局</li>
+                            <li>驴友网</li>
+                            <li>吾爱全球签证中心</li>
+                            <li>酒店团购</li>
+                            <li>携程旅游攻略</li>
+                            <li>天巡职航在线</li>
+                            <li>满天飞旅游网</li>
+                            <li>中国旅游网</li>
+                            <li>澳乐网</li>
+                            <li>背包免旅游行程</li>
+                            <li>出境旅游</li>
+                            <li>国际酒店</li>
+                            <li>广州旅行社</li>
+                            <li>出境旅游</li>
+                            <li>517旅行</li>
+                            <li>花生游</li>
+                            <li>家园网</li>
+                            <li>海外婚礼</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 栅格系统一份占位使用 --> 
+                <div class="col-xs-1"></div>
+            </div>
+            <!-- 大 -->
+            <div style="margin:0;padding:0" class="row end_b">
+                <!-- 栅格系统一份占位使用 --> 
+                <div class="col-xs-1"></div>
+                <div class="col-xs-10 end_cb">
+                    <h4>苏ICP备14019690号、2014-2017&nbsp;&nbsp;@苏州英华国际旅游有限公司 版权所有</h4>
+                </div>
+                <!-- 栅格系统一份占位使用 --> 
+                <div class="col-xs-1"></div>
+            </div>
+            <!-- 小 -->
+            <div style="margin:0;padding:0" class="row end_sb">
+                <div class="col-xs-12 end_scb">
+                    <h4>苏ICP备14019690号、2014-2017<br/>@苏州英华国际旅游有限公司 版权所有<br/>技术支持&nbsp;杭州联橙科技</h4>
+                </div>
+            </div>
+    </div>
+
+
+
+ </body>
+ </html>
